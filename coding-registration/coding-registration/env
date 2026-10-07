@@ -1,0 +1,8 @@
+SMTP_SERVER=smtp.gmail.com
+SMTP_PORT=587
+
+SMTP_USERNAME=mouhardbsmilesamoray@gmail.com
+
+SMTP_PASSWORD=gzogpmqlazigegwc
+
+RECEIVER_EMAIL=mouhardbsmilesamoray@gmail.com

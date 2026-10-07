@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>سجّل الآن | منصة تعلّم البرمجة</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@600;800&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<link rel="stlesheet" href="style.css">
+</head>
+<body>
+<main>
+  <header>
+    <span class="badge" dir="ltr">&lt;start_coding /&gt;</span>
+    <h1>ابدأ رحلتك في <span class="grad">البرمجة</span></h1>
+    <p class="muted">املأ النموذج وسيتواصل معك فريقنا لتحديد المسار الأنسب لك.</p>
+  </header>
+  
+  <form action="https://formspree.io/f/mrpepzqa" method="POST" class="glass" novalidate>
+    <div class="f"><label>الاسم بالكامل <b>*</b></label><input class="field" name="name" placeholder="مثال: أحمد محمد"><p class="err" data-for="name"></p></div>
+    <div class="grid2">
+      <div class="f"><label>البريد الإلكتروني <b>*</b></label><input class="field" name="email" type="email" dir="ltr" placeholder="you@example.com"><p class="err" data-for="email"></p></div>
+      <div class="f"><label>رقم الهاتف / واتساب <b>*</b></label>
+        <div class="row" dir="ltr">
+          <select class="field code" name="code">
+            <option value="+20">+20 🇪🇬</option><option value="+966">+966 🇸🇦</option><option value="+971">+971 🇦🇪</option><option value="+965">+965 🇰🇼</option><option value="+974">+974 🇶🇦</option><option value="+962">+962 🇯🇴</option><option value="+212">+212 🇲🇦</option><option value="+213">+213 🇩🇿</option><option value="+216">+216 🇹🇳</option><option value="+964">+964 🇮🇶</option>
+          </select>
+          <input class="field" name="phone" inputmode="numeric" placeholder="1012345678">
+        </div><p class="err" data-for="phone"></p></div>
+    </div>
+    <div class="f">
+    <label>إرفاق صورة لقطه شاشه للتحويل </label>
+
+    <input
+        class="field"
+        type="file"
+        name="image"
+        accept="image/png,image/jpeg,image/webp"
+    >
+
+    <p class="muted">
+        يمكنك رفع صورة بصيغة JPG أو PNG أو WEBP
+    </p>
+</div>
+    <div class="f"><label>المستوى الحالي في البرمجة <b>*</b></label>
+      <select class="field" name="level"><option value="">اختر مستواك...</option><option>مبتدئ تماماً (لا أملك خبرة)</option><option>ملم بالأساسيات</option><option>متوسط / كتبت كود من قبل</option></select><p class="err" data-for="level"></p></div>
+    <div class="f"><label>المسار المطلوب دراسته <b>*</b></label>
+      <div class="grid2">
+        <label class="chip"><input type="radio" name="track" value="ps"><span>أساسيات البرمجة وحل المشكلات<small>Problem Solving</small></span></label>
+        <label class="chip"><input type="radio" name="track" value="web"><span>تطوير مواقع الإنترنت<small>Front/Back-end</small></span></label>
+        <label class="chip"><input type="radio" name="track" value="mobile"><span>تطوير تطبيقات الموبايل<small>Mobile Apps</small></span></label>
+        <label class="chip"><input type="radio" name="track" value="other"><span>أخرى<small>حدد مسارك</small></span></label>
+      </div>
+      
+      <input class="field hidden" name="otherTrack" placeholder="اكتب المسار الذي ترغب في دراسته">
+      <p class="err" data-for="track"></p><p class="err" data-for="otherTrack"></p></div>
+    <div class="f"><label>نظام الدراسة المفضل <b>*</b></label>
+      <div class="grid2">
+        <label class="chip"><input type="radio" name="mode" value="live"><span>أونلاين مباشر<small>Live Zoom Classes</small></span></label>
+        <label class="chip"><input type="radio" name="mode" value="recorded"><span>مسجل<small>Recorded Self-Paced</small></span></label>
+      </div><p class="err" data-for="mode"></p></div>
+    <div class="f"><label>هل تملك جهاز كمبيوتر / لاب توب حالياً؟ <b>*</b></label>
+      <div class="grid2">
+        <label class="chip c"><input type="radio" name="laptop" value="نعم">نعم</label>
+        <label class="chip c"><input type="radio" name="laptop" value="لا">لا</label>
+      </div><p class="err" data-for="laptop"></p></div>
+    <div class="f"><label>أهدافك من الكورس / ما الذي تطمح للوصول إليه؟ <span class="muted">(اختياري)</span></label>
+      <textarea class="field" name="goals" maxlength="1000" rows="4" placeholder="مثال: أريد العمل كمطور ويب مستقل..."></textarea></div>
+    <button type="submit" class="btn" id="submit">أرسل طلب التقديم 🚀</button>
+    <p class="err" id="server-err"></p>
+  </form>
+</main>
+<div id="modal" class="modal hidden"><div class="glass box">
+  <div class="check">✓</div><h2>تم استلام طلبك بنجاح!</h2><p class="muted">سنتواصل معك عبر الواتساب قريباً.</p>
+  <button class="btn" id="close">حسناً</button></div></div>
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
